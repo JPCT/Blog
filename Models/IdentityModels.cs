@@ -25,9 +25,14 @@ namespace Blog.Models
         {
         }
 
+
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Post> Posts { get; set; }
+
     }
 }
