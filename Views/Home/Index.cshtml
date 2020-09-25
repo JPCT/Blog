@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Blog.Models.Post>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -11,19 +13,27 @@
         <small>Secondary Text</small>
     </h1>
 
-    @for (int i = 1; i < 4; i++)
+    @foreach (var item in Model)
     {
         <!-- Blog Post -->
         <div class="card mb-4">
             <img class="card-img-top" src="https://blog.hotmart.com/blog/2020/06/BLOG_web-design.png" alt="Card image cap">
             <div class="card-body">
-                <h2 class="card-title">Post Title @i</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                <h2 class="card-title">@item.Title</h2>
+                @if (item.Content.Length > 220)
+                {
+                    <p class="card-text">@item.Content.Substring(0, 220)</p>
+                }
+                else
+                {
+                    <p class="card-text">@item.Content</p>
+                }
+
+                <a href="../Post/Details/@item.Id" class="btn btn-primary">Leer más &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-                Posted on January 1, 2020 by
-                <a href="#">Start Bootstrap</a>
+                Publicado en @item.PostDate.ToString("MMMM") @item.PostDate.Day, @item.PostDate.Year por
+                <a href="#">@item.User.UserName</a>
             </div>
         </div>
     }

@@ -18,7 +18,7 @@ namespace Blog.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            var posts = db.Posts.Include(p => p.FK_User);
+            var posts = db.Posts.Include(p => p.User);
             return View(posts.ToList());
         }
 
@@ -29,11 +29,20 @@ namespace Blog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+
+            Post post = db.Posts.Where(p => p.Id == id).Include(p => p.User).SingleOrDefault();
+
             if (post == null)
             {
                 return HttpNotFound();
             }
+            post.Comments = db.Comments.Where(c => c.PostId == id).ToList();
+            for (int i = 0; i < post.Comments.Count; i++)
+            {
+                string idComment = post.Comments[i].Id;
+                post.Comments[i].NestedComments = (from N in db.NestedComments where N.CommentId == idComment select N).ToList();
+            }
+            ViewBag.Logged = User.Identity.GetUserId() != null ? true : false;
             return View(post);
         }
 
@@ -52,7 +61,7 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                post.FK_User = db.Users.Find(User.Identity.GetUserId());
+                post.User = db.Users.Find(User.Identity.GetUserId());
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -17,8 +17,10 @@ namespace Blog.Models
         public string Content { get; set; }
         public PostCategory Category { get; set; }
         public DateTime PostDate { get; set; }
-        public virtual ApplicationUser FK_User {get;set;}
-        
+        public virtual ApplicationUser User {get;set;}
+        [NotMapped]
+        public List<Comment> Comments { get; set; }
+
         public Post()
         {
             Id = Guid.NewGuid().ToString();
