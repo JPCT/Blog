@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <form>
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" name="Content"></textarea>
+                            <textarea class="form-control" rows="3" name="Content" id="newCommentContent"></textarea>
                         </div>
                         @if (Request.IsAuthenticated)
                         {
@@ -123,3 +123,13 @@
 
 </div>
 <!-- /.row -->
+
+<script type="text/javascript">
+    window.onload = function () {
+        var comment = sessionStorage.getItem("newComment");
+        if (comment !== null) {
+            $('#newCommentContent').val(comment);
+            sessionStorage.removeItem("newComment");
+        }
+    }
+</script>

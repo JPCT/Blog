@@ -216,6 +216,9 @@
                 data: { email: email, password: password, rememberMe: remember },
                 success: function (data) {
                     if (data === "Success") {
+                        if ($("#newCommentContent").length > 0) {
+                            sessionStorage.setItem("newComment", $('#newCommentContent').val());
+                        }
                         location.reload();
                     }
                     if (data === "LockedOut") {
@@ -272,6 +275,9 @@
                 data: { email: email, password: password },
                 success: function (data) {
                     if (data === "Success") {
+                        if ($("#newCommentContent").length > 0) {
+                            sessionStorage.setItem("newComment", $('#newCommentContent').val());
+                        }
                         location.reload();
                     }
                     if (data === "Failure") {
