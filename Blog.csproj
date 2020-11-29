@@ -1919,6 +1919,7 @@
     <Content Include="assets\dist\fontawesome-free-5.14.0-web\webfonts\fa-solid-900.ttf" />
     <Content Include="assets\dist\fontawesome-free-5.14.0-web\webfonts\fa-solid-900.woff" />
     <Content Include="assets\dist\fontawesome-free-5.14.0-web\webfonts\fa-solid-900.woff2" />
+    <Content Include="assets\dist\jquery\jquery-3.5.1.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

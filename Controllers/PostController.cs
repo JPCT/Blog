@@ -36,13 +36,13 @@ namespace Blog.Controllers
             {
                 return HttpNotFound();
             }
-            post.Comments = db.Comments.Where(c => c.PostId == id).ToList();
+            post.Comments = db.Comments.Where(c => c.PostId == id).OrderByDescending(c => c.CommentDate).ToList();
             for (int i = 0; i < post.Comments.Count; i++)
             {
                 string idComment = post.Comments[i].Id;
                 post.Comments[i].NestedComments = (from N in db.NestedComments where N.CommentId == idComment select N).ToList();
             }
-            ViewBag.Logged = User.Identity.GetUserId() != null ? true : false;
+
             return View(post);
         }
 
