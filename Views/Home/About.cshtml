@@ -1,10 +1,54 @@
 ﻿@{
     ViewBag.Title = "Acerca de";
 }
-<div class="container">
-    <h2>Acerca de Ingesis Blog</h2>
-    <p>
-        Ingesis Blog es un blog para personas interesadas en aprender sobre informática. Es para el lector que desee saber más sobre tecnología.
-        Nuestro objetivo es proporcionar información y contenido que sea útil. Los artículos que verá aquí tienen un propósito específico y pueden ayudarlo a comprender una variedad de temas relacionados con la ingeniería de sistemas. Nos esforzamos por ayudar a las personas que se encuentran inmersas en este campo de estudio.
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito&display=swap" rel="stylesheet">
+<style>
+    .main-content {
+        display: block;
+        margin: 0;
+        font-family: 'Anton', sans-serif;
+        font-family: 'Nunito', sans-serif;
+        font-size: large;
+        background-image: url("../../assets/dist/images/aboutBackground.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .titulo {
+        padding: 10px;
+        margin-left: 40%;
+        color: white;
+        font-size: xx-large;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-color: white;
+        border-radius: 30px;
+    }
+
+    .info {
+        color: black;
+        justify-content: center;
+        margin-top: 25%;
+        margin-left: 20%;
+        margin-right: 20%;
+        padding: 5px;
+        color: white;
+        font-size: xx-large;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-color: white;
+        border-radius: 30px;
+        text-align: justify;
+    }
+</style>
+
+<main class="main-content">
+    <h2 class="titulo">Acerca de nuestro Blog</h2>
+    <p class="info">
+        Ingesis Blog es un blog para personas interesadas en aprender sobre informática. Es para el lector que desee
+        saber más sobre tecnología.
+        Nuestro objetivo es proporcionar información y contenido que sea útil. Los artículos que verá aquí tienen un
+        propósito específico y pueden ayudarlo a comprender una variedad de temas relacionados con la ingeniería de
+        sistemas. Nos esforzamos por ayudar a las personas que se encuentran inmersas en este campo de estudio.
     </p>
-</div>
+</main>

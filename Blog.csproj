@@ -1839,6 +1839,7 @@
     <Content Include="assets\dist\fontawesome-free-5.14.0-web\webfonts\fa-brands-400.svg" />
     <Content Include="assets\dist\fontawesome-free-5.14.0-web\webfonts\fa-regular-400.svg" />
     <Content Include="assets\dist\fontawesome-free-5.14.0-web\webfonts\fa-solid-900.svg" />
+    <Content Include="assets\dist\images\aboutBackground.jpg" />
     <Content Include="assets\dist\jquery\jquery.js" />
     <Content Include="assets\dist\jquery\jquery.min.js" />
     <Content Include="assets\dist\jquery\jquery.slim.js" />
