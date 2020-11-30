@@ -43,15 +43,7 @@
         </div>
     </nav>
 
-    <div class="body-content" style="padding-right: 15%;padding-left: 15%;">
-        <div class="row">
-            @RenderBody()
-
-        </div>
-
-        <hr />
-
-    </div>
+    @RenderBody()
 
 
 
@@ -173,10 +165,6 @@
 
 
     <script type="text/javascript">
-        $(window).on('load', function () {
-            $('#loginModal').modal('show');
-        });
-
         function openRegisterModal() {
             $('#loginModal').modal('hide');
             $('#registerModal').modal('show');
